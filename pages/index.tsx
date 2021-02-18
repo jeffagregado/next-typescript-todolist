@@ -1,5 +1,7 @@
+import { AppProps } from 'next/dist/next-server/lib/router/router'
 import Head from 'next/head'
 import { useState } from 'react'
+import TodosList from '../components/TodosList'
 import styles from '../styles/Home.module.css'
 
 type FormElem = React.FormEvent<HTMLFormElement>
@@ -24,18 +26,6 @@ export default function Home() {
     setTodos(newTodos)
   }
 
-  const completeTodo = (index: number): void => {
-    const newTodos: ITodo[] = [...todos]
-    newTodos[index].complete = !newTodos[index].complete
-    setTodos(newTodos)
-  }
-
-  const removeTodo = (index: number): void => {
-    const newTodos: ITodo[] = [...todos]
-    newTodos.splice(index, 1)
-    setTodos(newTodos)
-  }
-
   return (
     <>
       <h1>Todo List</h1>
@@ -49,31 +39,7 @@ export default function Home() {
         <button type="submit">Add Todo</button>
       </form>
 
-      <section>
-        {todos.map((todo: ITodo, index: number) => {
-          return (
-            <>
-              <div key={index}>
-                <div
-                  style={{
-                    textDecoration: todo.complete ? 'line-through' : '',
-                  }}
-                >
-                  {todo.text}
-                </div>
-                <button type="button" onClick={() => completeTodo(index)}>
-                  {''}
-                  {todo.complete ? 'Incomplete' : 'Complete'}
-                  {''}
-                </button>
-                <button type="button" onClick={() => removeTodo(index)}>
-                  Remove
-                </button>
-              </div>
-            </>
-          )
-        })}
-      </section>
+      <TodosList todos={todos} setTodos={setTodos} />
     </>
   )
 }
