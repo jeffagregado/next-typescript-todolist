@@ -1,17 +1,18 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react'
 
+type Dispatcher<T> = Dispatch<SetStateAction<T>> // for useState Types when accessing the useState values
 
-type TTodo = {
-    todos: ITodo[]
-    setTodos: Dispatch<SetStateAction<ITodo[]>>
+type Props = {
+  todos: ITodo[]
+  setTodos: Dispatcher<ITodo[]>
 }
 
 interface ITodo {
-    text: string
-    complete: boolean
-  }
+  text: string
+  complete: boolean
+}
 
-const TodosList = ({ todos, setTodos }: TTodo) => {
+const TodosList = ({ todos, setTodos }: Props) => {
   const completeTodo = (index: number): void => {
     const newTodos: ITodo[] = [...todos]
     newTodos[index].complete = !newTodos[index].complete
