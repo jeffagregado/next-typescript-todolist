@@ -1,8 +1,7 @@
-import { AppProps } from 'next/dist/next-server/lib/router/router'
 import Head from 'next/head'
 import { useState } from 'react'
 import TodosList from '../components/TodosList'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
