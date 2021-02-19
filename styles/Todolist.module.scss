@@ -1,0 +1,31 @@
+.todolist {
+  padding: 0.5rem 1rem 2rem;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(252, 238, 238);
+  box-shadow: 5px 5px 10px rgb(66, 66, 66);
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__input {
+    margin-right: 1rem;
+    height: 20px;
+    border: none;
+    padding: 0 10px;
+    box-shadow: none;
+    outline: none;
+
+    &--round {
+      border-radius: 50px;
+
+      &:focus {
+        border-color: black;
+        box-shadow: 0 0 10px rgba(36, 55, 228, 0.5);
+      }
+    }
+  }
+}
