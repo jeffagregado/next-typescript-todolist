@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
+import Button from './Button'
 
 type Dispatcher<T> = Dispatch<SetStateAction<T>> // for useState Types when accessing the useState values
 
@@ -38,14 +39,14 @@ const TodosList = ({ todos, setTodos }: Props) => {
               >
                 {todo.text}
               </div>
-              <button type="button" onClick={() => completeTodo(index)}>
+              <Button type="button" onClick={() => completeTodo(index)}>
                 {''}
                 {todo.complete ? 'Incomplete' : 'Complete'}
                 {''}
-              </button>
-              <button type="button" onClick={() => removeTodo(index)}>
+              </Button>
+              <Button type="button" onClick={() => removeTodo(index)}>
                 Remove
-              </button>
+              </Button>
             </div>
           </>
         )

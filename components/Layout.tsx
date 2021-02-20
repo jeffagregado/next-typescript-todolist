@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import stylesLayout from '../styles/Layout.module.scss'
+// import stylesLayout from '../styles/Layout.module.scss'
 
 type Props = {
   children?: ReactNode
@@ -8,8 +8,8 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <div className={stylesLayout.container}>
-        <main className={stylesLayout['container__main']}>{children}</main>
+      <div className="container flex flex-col flex-start justify-start min-h-screen">
+        <main className="mt-20 mx-auto mb-0">{children}</main>
       </div>
     </>
   )

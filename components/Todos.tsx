@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import TodosList from '../components/TodosList'
 import styleTodolist from '../styles/Todolist.module.scss'
+import Button from './Button'
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
@@ -37,7 +38,7 @@ const Todos = () => {
             onChange={(e) => setValue(e.target.value)}
             required
           />
-          <button type="submit">Add Todo</button>
+          <Button type="submit">Add Todo</Button>
         </form>
         <TodosList todos={todos} setTodos={setTodos} />
       </div>

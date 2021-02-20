@@ -1,12 +1,14 @@
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import Layout from '../components/Layout'
-import '../styles/globals.scss'
+import '../styles/tailwind.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <body className="debug-screens">
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </body>
   )
 }
 
