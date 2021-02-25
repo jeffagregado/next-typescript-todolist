@@ -1,34 +1,35 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, ReactNode } from 'react'
 import Button from './Button'
 
 type Dispatcher<T> = Dispatch<SetStateAction<T>> // for useState Types when accessing the useState values
 
 type Props = {
-  todos: ITodo[]
-  setTodos: Dispatcher<ITodo[]>
+  todos: ITodo2[]
+  setTodos: Dispatcher<ITodo2[]>
+  className?: string
 }
 
-interface ITodo {
+interface ITodo2 {
   text: string
   complete: boolean
 }
 
-const TodosList = ({ todos, setTodos }: Props) => {
+const TodosList = ({ todos, setTodos, className }: Props) => {
   const completeTodo = (index: number): void => {
-    const newTodos: ITodo[] = [...todos]
+    const newTodos: ITodo2[] = [...todos]
     newTodos[index].complete = !newTodos[index].complete
     setTodos(newTodos)
   }
 
   const removeTodo = (index: number): void => {
-    const newTodos: ITodo[] = [...todos]
+    const newTodos: ITodo2[] = [...todos]
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
 
   return (
-    <section>
-      {todos.map((todo: ITodo, index: number) => {
+    <section className={className}>
+      {todos.map((todo: ITodo2, index: number) => {
         return (
           <>
             <div key={index}>

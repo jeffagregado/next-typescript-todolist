@@ -2,4 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './Button.module.scss';
+body {
+  background-color: #e3e9ff;
+}

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import TodosList from '../components/TodosList'
-import styleTodolist from '../styles/Todolist.module.scss'
 import Button from './Button'
+import Input from './Input'
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
 interface ITodo {
   text: string
   complete: boolean
+  index?: number
 }
 
 const Todos = () => {
@@ -27,20 +28,33 @@ const Todos = () => {
 
   return (
     <>
-      <div className={styleTodolist.todolist}>
-        <h1 className={styleTodolist['todolist__title']}>Todo List</h1>
-        <form action="" onSubmit={handleSubmit}>
-          <input
-            className={`${styleTodolist['todolist__input']} ${styleTodolist['todolist__input--round']}`}
-            type="text"
-            value={value}
-            placeholder="Input text"
-            onChange={(e) => setValue(e.target.value)}
-            required
-          />
-          <Button type="submit">Add Todo</Button>
-        </form>
-        <TodosList todos={todos} setTodos={setTodos} />
+      <div className="w-80">
+        <div className="flex justify-center bg-indigo-400 text-white py-2 mb-5">
+          <h1 className="text-2xl font-semibold">Todo List</h1>
+        </div>
+        <div className="p-5 rounded-md flex flex-col justify-center bg-white">
+          <form action="" onSubmit={handleSubmit} autoComplete="off">
+            {/* <Input
+              type="input"
+              placeholder="Your Todo"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              className="mb-4"
+            >
+              Your Todo
+            </Input> */}
+            <div className="flex mb-4 justify-around">
+              <Input
+                type="text"
+                placeholder="Your Todo"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+              <Button type="submit">Add Todo</Button>
+            </div>
+          </form>
+          <TodosList todos={todos} setTodos={setTodos} />
+        </div>
       </div>
     </>
   )
